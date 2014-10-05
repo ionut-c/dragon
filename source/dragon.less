@@ -1,31 +1,54 @@
 body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    background: #e5e5e5;
+    font-size: 13px;
 }
 
 @grid-width: 1000;
 @grid-columns: 12;
-@spacing-left: 10px;
-@spacing-right: 10px;
-
-@debug-border: 1px solid red;
+@outter-spacing: 0.5;
+@inner-spacing: 16px;
+@debug-border: none;
 
 .row {
     width: unit(@grid-width, px);
     border: @debug-border;
     margin: 0 auto;
+    overflow: auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 .loop(@counter) when (@counter > 0) {
     .col@{counter} {
-        width: unit(@grid-width / @grid-columns * @counter, px);
-        margin-left: @spacing-left;  
-        margin-right: @spacing-right;
-        border: @debug-border;
+        width: unit(100 / @grid-columns * @counter - @outter-spacing*2, %);
     }
     .loop((@counter - 1));    // next iteration
 }
 
 .row {
     .loop(@grid-columns); // launch the loop
+    [class^="col"] {
+        margin-left: unit(@outter-spacing, %);
+        margin-right: unit(@outter-spacing, %);
+        border: @debug-border;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        float: left;
+        padding: @inner-spacing;
+    }
+}
+
+[class^="col"] {
+    .row {
+        width: 100%;
+    }
+}
+
+.card {
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.22);
+    border-radius: 2px;
+    overflow: hidden;
+    background: #fff;
 }
