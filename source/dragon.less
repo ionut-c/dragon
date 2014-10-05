@@ -7,15 +7,18 @@ body {
 
 @grid-width: 1000;
 @grid-columns: 12;
-@outter-spacing: 0.5;
+@outter-spacing: 0.8;
 @inner-spacing: 16px;
-@debug-border: none;
+@debug-border: 1px solid red;
+
+.debug-border {
+    border: @debug-border;
+}
 
 .row {
     width: unit(@grid-width, px);
-    border: @debug-border;
     margin: 0 auto;
-    overflow: auto;
+    display: table;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
@@ -24,7 +27,17 @@ body {
     .col@{counter} {
         width: unit(100 / @grid-columns * @counter - @outter-spacing*2, %);
     }
-    .loop((@counter - 1));    // next iteration
+
+    .col@{counter}:first-child,
+    .col@{counter}:last-child {
+        width: unit(100 / @grid-columns * @counter - @outter-spacing, %);
+    }
+
+    .col@{counter}:first-child:last-child {
+        width: unit(100 / @grid-columns * @counter, %);
+    }
+
+    .loop((@counter - 1));
 }
 
 .row {
@@ -32,7 +45,6 @@ body {
     [class^="col"] {
         margin-left: unit(@outter-spacing, %);
         margin-right: unit(@outter-spacing, %);
-        border: @debug-border;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         float: left;
@@ -44,6 +56,14 @@ body {
     .row {
         width: 100%;
     }
+}
+
+[class^="col"]:first-child {
+    margin-left: 0;
+}
+
+[class^="col"]:last-child {
+    margin-right: 0;
 }
 
 .card {
