@@ -1,0 +1,31 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+@grid-width: 1000;
+@grid-columns: 12;
+@spacing-left: 10px;
+@spacing-right: 10px;
+
+@debug-border: 1px solid red;
+
+.row {
+    width: unit(@grid-width, px);
+    border: @debug-border;
+    margin: 0 auto;
+}
+
+.loop(@counter) when (@counter > 0) {
+    .col@{counter} {
+        width: unit(@grid-width / @grid-columns * @counter, px);
+        margin-left: @spacing-left;  
+        margin-right: @spacing-right;
+        border: @debug-border;
+    }
+    .loop((@counter - 1));    // next iteration
+}
+
+.row {
+    .loop(@grid-columns); // launch the loop
+}
