@@ -1,0 +1,50 @@
+.row {
+    width: unit(@grid-width, px);
+    margin: 0 auto;
+    display: table;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.loop(@counter) when (@counter > 0) {
+    .colM@{counter} {
+        width: unit(100 / @grid-columns * @counter - @outter-spacing*2, %);
+    }
+
+    .colM@{counter}:first-child,
+    .colM@{counter}:last-child {
+        width: unit(100 / @grid-columns * @counter - @outter-spacing, %);
+    }
+
+    .colM@{counter}:first-child:last-child {
+        width: unit(100 / @grid-columns * @counter, %);
+    }
+
+    .loop((@counter - 1));
+}
+
+.row {
+    .loop(@grid-columns); // launch the loop
+    [class^="colM"] {
+        margin-left: unit(@outter-spacing, %);
+        margin-right: unit(@outter-spacing, %);
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        float: left;
+        padding: @inner-spacing;
+    }
+}
+
+[class^="colM"] {
+    .row {
+        width: 100%;
+    }
+}
+
+[class^="colM"]:first-child {
+    margin-left: 0;
+}
+
+[class^="colM"]:last-child {
+    margin-right: 0;
+}

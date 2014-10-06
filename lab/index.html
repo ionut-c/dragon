@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js typography lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js typography lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js typography lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js typography"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,37 +11,51 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="../dist/css/dragon.css">
         <link rel="stylesheet" href="css/normalize.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body>
+    <body class="dragon">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <!-- Add your site or application content here -->
         <header>
-            <nav></nav>
+            <div class="row">
+                <nav class="navBar">
+                    <ul class="nav">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Item 2</a></li>
+                        <li><a href="#">Item 3</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
-        <div class="row">
-        	<div class="col2 card">
-                <p>col2</p>
+        <article class="row">
+        	<aside class="colM3 card">
+                <h2>Core Values</h2>
+                <dl class="dragon">
+                   <dt>Don't code on naked elements</dt> 
+                   <dd>This way devs can get Dragon out of their way.</dd> 
+                   <dt>Don't code unnatural structures</dt>
+                   <dd>Code should be straightforward even if it's harder for us.</dd>
+                </dl>
+            </aside>
+        	<section class="colM9 card">
+                <h1>Conventions</h1>
                 <div class="row">
-                    <div class="col6 card"><p>col6</p></div>
-                    <div class="col6 card"><p>col6</p></div>
+                    <div class="colM6 card">
+                        <button class="button">colM6</button>
+                        <button class="button M">colM6</button>
+                        <button class="button L">colM6</button>
+                    </div>
+                    <div class="colM6 card"><p>colM6</p></div>
                 </div>
-            </div>
-        	<div class="col10 card">
-                <p>col10</p>
-                <div class="row">
-                    <div class="col6 card"><p>col6</p></div>
-                    <div class="col6 card"><p>col6</p></div>
-                </div>
-            </div>
-        </div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            </section>
+        </article>
+        
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>

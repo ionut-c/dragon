@@ -1,17 +1,53 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+body.dragon {
     background: #e5e5e5;
+}
+
+dl.dragon {
+    dt {
+        margin: 8px 0;
+    }
+
+    dd {
+        margin: 0 0 0 16px;
+    }
+}
+
+.typography
+ {
     font-size: 13px;
+    body,
+    h1,
+    h2,
+    h3,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        color: rgba(0,0,0,.87);
+    }
 }
 
 /* -------------------------------------------------- 
 START material design color phylosophy */
 
 /* primary */
+@P50: #e7f9ef;
 @P100: #cff4df;
+@P200: #9fe9bf;
+@P300: #6fde9f;
+@P400: #3fd37f;
 @P500: #10c960;
+@P600: #0ca04c;
 @P700: #097839;
+@P800: #086430;
+@P900: #043c1c;
+@PA100: #beefd3;
+@PA200: #88dfae;
+@PA400: #38e281;
+@PA700: #119a4c;
 
 /* accent */
 @A100: #ffe57f;
@@ -19,79 +55,84 @@ START material design color phylosophy */
 @A700: #ffc400;
 
 /* fallback */
-@F000: #f9f9f9
+@F00: #f9f9f9;
 
 /* END material design color phylosophy
 -------------------------------------------------- */
+
 
 @grid-width: 1000;
 @grid-columns: 12;
 @outter-spacing: 0.8;
 @inner-spacing: 16px;
 @debug-border: 1px solid red;
+@radius: 2px;
+
+@import "grid.less";
 
 .debug-border {
     border: @debug-border;
 }
 
-.row {
-    width: unit(@grid-width, px);
-    margin: 0 auto;
-    display: table;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
-
-.loop(@counter) when (@counter > 0) {
-    .col@{counter} {
-        width: unit(100 / @grid-columns * @counter - @outter-spacing*2, %);
-    }
-
-    .col@{counter}:first-child,
-    .col@{counter}:last-child {
-        width: unit(100 / @grid-columns * @counter - @outter-spacing, %);
-    }
-
-    .col@{counter}:first-child:last-child {
-        width: unit(100 / @grid-columns * @counter, %);
-    }
-
-    .loop((@counter - 1));
-}
-
-.row {
-    .loop(@grid-columns); // launch the loop
-    [class^="col"] {
-        margin-left: unit(@outter-spacing, %);
-        margin-right: unit(@outter-spacing, %);
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        float: left;
-        padding: @inner-spacing;
-    }
-}
-
-[class^="col"] {
-    .row {
-        width: 100%;
-    }
-}
-
-[class^="col"]:first-child {
-    margin-left: 0;
-}
-
-[class^="col"]:last-child {
-    margin-right: 0;
-}
-
 .card {
     box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.22);
-    border-radius: 2px;
+    border-radius: @radius;
     overflow: hidden;
     background: #fff;
 }
 
-.nav {
-    background: 
+.navBar {
+    background: @P500;
+    border-radius: @radius;
+}
+
+ul.nav {
+    padding: 20px 0;
+    li {
+        display: inline-block;
+        a {
+            color: #fff;
+            padding: 10px 16px;
+            text-decoration: none;
+            border-radius: @radius;
+            -moz-transition: 0.1s ease-in background;
+            transition: 0.1s ease-in background;
+            background: rgba(0,0,0,0);
+        }
+        a:hover {
+            background: rgba(0,0,0,.05);
+        }
+    }
+}
+
+.button,
+.button.S {
+    background: @P500;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.22);
+    border: 0;
+    border-radius: @radius;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 10px;
+    outline: none;
+    -moz-transition: background-color 150ms ease-out, border-color 150ms ease-out;
+    transition: background-color 150ms ease-out, border-color 150ms ease-out;
+}
+
+.button:hover {
+    background: @P400;
+}
+
+.button.M {
+    font-size: 13px;
+    padding: 10px 16px;
+}
+
+.button.L {
+    font-size: 18px;
+    padding: 14px 22px;
+}
+
+.button.accent {
+    background: @A500;
 }
