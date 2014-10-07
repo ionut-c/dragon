@@ -25,16 +25,14 @@
     .loop((@counter - 1));
 }
 
-.row {
-    .loop(@grid-columns); // launch the loop
-    [class^="colM"] {
-        margin-left: unit(@outter-spacing, %);
-        margin-right: unit(@outter-spacing, %);
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        float: left;
-        padding: @inner-spacing;
-    }
+.loop(@grid-columns); // launch the loop
+[class^="colM"] {
+    margin-left: unit(@outter-spacing, %);
+    margin-right: unit(@outter-spacing, %);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float: left;
+    padding: @inner-spacing;
 }
 
 [class^="colM"] {
