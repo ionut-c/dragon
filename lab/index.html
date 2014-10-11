@@ -11,22 +11,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="../dist/css/dragon.css">
         <link rel="stylesheet" href="css/normalize.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body class="dragon">
+    <body class="dragon navTopSpacing">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <!-- Add your site or application content here -->
         <header>
+            <nav class="navBar fixed">
+                <ul class="nav">
+                    <li class="logo">Dragon</li>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                </ul>
+            </nav>
             <nav class="row">
                 <ul class="nav navBar">
                     <li class="logo">Dragon</li>
-                    <li><a href="#">Home</a></li>
+                    <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">Item 2</a></li>
                     <li><a href="#">Item 3</a></li>
                 </ul>
@@ -41,10 +49,12 @@
                        <dd>This way devs can get Dragon out of their way.</dd> 
                        <dt>Don't code unnatural structures</dt>
                        <dd>Code should be straightforward even if it's harder for us.</dd>
+                       <dt>Don't require extra CSS</dt>
+                       <dd>Everything should work without the user having to write more CSS.</dd>
                     </dl>
                 </div>
                 <div class="card">
-                    <h2>Buglist</h2>
+                    <h2>Known Bugs</h2>
                     <iframe class="dragon" src="buglist.html"></iframe>
                 </div>
             </aside>
