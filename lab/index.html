@@ -23,18 +23,16 @@
 
         <!-- Add your site or application content here -->
         <header>
-            <div class="row">
-                <nav class="navBar">
-                    <ul class="nav">
-                        <li class="logo">Dragon</li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Item 2</a></li>
-                        <li><a href="#">Item 3</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <nav class="row">
+                <ul class="nav navBar">
+                    <li class="logo">Dragon</li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                </ul>
+            </nav>
         </header>
-        <article class="row">
+        <div class="row">
         	<aside class="colM3">
                 <div class="card">
                     <h2>Core Values</h2>
@@ -50,7 +48,7 @@
                     <iframe class="dragon" src="buglist.html"></iframe>
                 </div>
             </aside>
-        	<section class="colM9 card">
+        	<article class="card colM9">
                 <h1>Info</h1>
                 <div class="colM6">
                     <h2>Conventions</h2>
@@ -68,9 +66,11 @@
                     <h3>Grid</h3>
                     <p>No need for colM12 where elements are always on separate rows.</p>
                 </div>
-            </section>
-        </article>
-        
+            </article>
+        </div>
+        <footer>
+
+        </footer>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>

@@ -48,12 +48,12 @@ iframe.dragon {
         color: rgba(0,0,0,.87);
     }
 
-    [class^="col"] h1:first-child,
-    [class^="col"] h2:first-child,
-    [class^="col"] h3:first-child,
-    [class^="col"] h4:first-child,
-    [class^="col"] h5:first-child,
-    [class^="col"] h6:first-child {
+    [class*="col"] h1:first-child,
+    [class*="col"] h2:first-child,
+    [class*="col"] h3:first-child,
+    [class*="col"] h4:first-child,
+    [class*="col"] h5:first-child,
+    [class*="col"] h6:first-child {
         margin-top: 0;
     }
 
@@ -98,7 +98,7 @@ iframe.dragon {
     background: #fff;
 }
 
-[class^="col"] .card {
+[class*="col"] > .card {
     margin: -16px -16px 32px;
     padding: 16px;
 }

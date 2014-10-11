@@ -26,7 +26,7 @@
 }
 
 .loop(@grid-columns); // launch the loop
-[class^="colM"] {
+[class*="colM"] {
     margin-left: unit(@outter-spacing, %);
     margin-right: unit(@outter-spacing, %);
     box-sizing: border-box;
@@ -35,20 +35,20 @@
     padding: @inner-spacing;
 }
 
-[class^="colM"] {
+[class*="colM"] {
     .row {
         width: 100%;
     }
 }
 
-[class^="colM"]:first-child {
+[class*="colM"]:first-child {
     margin-left: 0;
 }
 
-[class^="colM"]:last-child {
+[class*="colM"]:last-child {
     margin-right: 0;
 }
 
-[class^="colM"].tight {
+[class*="colM"].tight {
     padding: 0;
 }
