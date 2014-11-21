@@ -3,9 +3,14 @@
 .row {
     width: unit(@grid-width, px);
     margin: 0 auto;
+    padding: 16px 0;
     display: table;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
+}
+
+.row ~ .row {
+    padding-top: 0;
 }
 
 .loop(@counter) when (@counter > 0) {
@@ -13,9 +18,11 @@
         width: unit(100 / @grid-columns * @counter - @outter-spacing*2, %);
     }
 
-    .colM@{counter}:first-child,
-    .colM@{counter}:last-child {
-        width: unit(100 / @grid-columns * @counter - @outter-spacing, %);
+    .row {
+        .colM@{counter}:first-child,
+        .colM@{counter}:last-child {
+            width: unit(100 / @grid-columns * @counter - @outter-spacing, %);
+        }
     }
 
     .colM@{counter}:first-child:last-child {
@@ -41,8 +48,10 @@
     }
 }
 
-[class*="colM"]:first-child {
-    margin-left: 0;
+.row {
+    [class*="colM"]:first-child {
+        margin-left: 0;
+    }
 }
 
 [class*="colM"]:last-child {

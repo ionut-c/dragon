@@ -1,0 +1,49 @@
+@import "variables.less";
+
+.navBar {
+    background: @P500;
+    border-radius: @radius;
+}
+
+.navBar.fixed {
+    position: fixed;
+    border-radius: 0;
+    top: 0;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,.52), 0 1px 1px 0 rgba(0,0,0,.20);
+    left: 0;
+    right: 0;
+}
+
+.navBar ul {
+    margin: 0
+}
+
+.nav {
+    padding: 20px 0;
+    li:not(.logo) {
+        display: inline-block;
+        a {
+            color: #fff;
+            padding: 10px 16px 7px 16px;
+            text-decoration: none;
+            border-radius: @radius;
+            -moz-transition: 0.1s ease-in background;
+            transition: 0.1s ease-in background;
+            background: rgba(0,0,0,0);
+            border-bottom: 3px solid transparent;
+        }
+        a:hover {
+            background: rgba(0,0,0,.05);
+        }
+    }
+    li:not(.logo).active {
+        a {
+            border-radius: 0;
+            border-bottom: 3px solid rgba(0,0,0,.05);
+        }
+
+        a:hover {
+            background: transparent;
+        }
+    }
+}

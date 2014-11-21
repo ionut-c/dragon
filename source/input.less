@@ -3,28 +3,76 @@
 .button,
 .button.S {
     background: @P500;
-    box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.22);
-    border: 0;
     border-radius: @radius;
+    border: none;
+    display: inline-block;
     color: #fff;
     padding: 6px 10px;
     font-size: 10px;
     outline: none;
-    -moz-transition: background-color 150ms ease-out, border-color 150ms ease-out;
-    transition: background-color 150ms ease-out, border-color 150ms ease-out;
+    overflow: hidden;
+    -moz-transition: background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out, box-shadow 0.1s ease-out;
+    transition: background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out, box-shadow 0.1s ease-out;
+    position: relative;
+    box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.2) inset;
 }
 
 .button:hover {
     background: @P400;
 }
 
+.button:active,
+.button.S:active,
+.button.M:active,
+.button.L:active {
+    box-shadow: none;
+}
+
+.button.special,
+.button.S.special,
+.button.M.special,
+.button.L.special {
+    background: transparent;
+    border: 2px solid @P500;
+    color: #333;
+    box-shadow: none
+}
+
+.button.special:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.button.special:before {
+    content: "";
+    background: @P500;
+    position: absolute;
+    left: -50%;
+    top: -400px;
+    height: 400px;
+    width: 160%;
+    display: block;
+    z-index: -1;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    transform-origin: 0 100%;
+}
+
+
+.button:hover:before {
+    transform: rotate(35deg);
+}
+
+
 .button.M {
     font-size: 13px;
+    box-shadow: 0 -3px 0 0 rgba(0, 0, 0, 0.2) inset;
     padding: 10px 16px;
 }
 
 .button.L {
     font-size: 18px;
+    box-shadow: 0 -4px 0 0 rgba(0, 0, 0, 0.2) inset;
     padding: 14px 22px;
 }
 
